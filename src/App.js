@@ -8,7 +8,7 @@ function App() {
         <nav>
           <h2>Shop</h2>
           <ul>
-            <li><a href="#"></a></li>
+            <li></li>
           </ul>
         </nav>
       </header>
