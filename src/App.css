@@ -1,4 +1,78 @@
-body {
-  background-color: red;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&family=Roboto:wght@500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  background-image: url("./images/cover.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 150px;
+  position: relative;
+}
+
+h2 {
+  color: #fefefe;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header-overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  margin: 0;
+  background-color: rgba(10, 10, 10, 0.3);
+}
+
+nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 50px 60px 0 60px;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+nav li:active {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+}
+
+nav li a {
+  color: #fefefe;
+  text-decoration: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.cart a {
+  background-color: #6f93ff;
+  border-radius: 8px;
 }
 /*# sourceMappingURL=App.css.map */
