@@ -53,8 +53,8 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
             <Fragment key={index}>
                 <div className="product">
                     <div onClick={() => clearProduct(product.tag)} className="close-circle">x</div>
-                    <img src={productImages(product)} alt="" />
-                    <span className="sm-hide">{product.name}</span>
+                    <img className="basketImage" src={productImages(product)} alt="" />
+                    <span className="basketItemName">{product.name}</span>
                 </div>
                 <div className="price sm-hide">${product.price},00</div>
                 <div className="quantity">
@@ -80,7 +80,7 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
             </div>
             <div className="basketTotalContainer">
                 <h4 className="basketTotalTitle">Basket Total</h4>
-                <h4 className="basketTotal">${basketProps.cartCost},00</h4>
+                <h4 className="basketTotalPrice">${basketProps.cartCost},00</h4>
             </div>
         </div>
     )

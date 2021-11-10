@@ -4,6 +4,7 @@
 $family: 'Roboto', sans-serif;
 $firstWeight: 500;
 $secondWeight: 700;
+$fontTwelve: 12px;
 
 //COLORS
 $backgroundColor: rgb(255, 253, 253);
@@ -15,13 +16,21 @@ $overlayBackground: rgba(10,10,10,0.3);
 $addToCartHover: rgb(243, 240, 240);
 $imageBorderColor: rgb(241, 240, 240);
 $textDecorationColor: rgb(182, 180, 180);
+$removeItemColor: rgb(255, 22, 22);
+$removeItemColorHover: rgb(255, 96, 96);
+$increaseColor: rgb(37, 255, 37);
+$decreaseColor: rgb(177, 46, 46);
 
 //COMMON BORDER RADIUS, PADDINGS, MARGINS
+$commonBorderOne: 1px;
+$commonBorderTwo: 2px;
 $commonFour: 4px;
+$commonSix: 6px;
 $commonEight: 8px;
 $commonTen: 10px;
 $commonTwenty: 20px;
 
 //RESPONSIVNES
 $tablet: 768px;
+$breakpoint: 660px;
 $mobile: 475px;

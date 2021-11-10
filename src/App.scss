@@ -8,6 +8,12 @@
     }
 }
 
+@mixin breakpoint {
+    @media (max-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
 @mixin mobile {
     @media (max-width: #{$mobile}) {
         @content;
@@ -56,6 +62,12 @@ h2 {
     text-transform: uppercase;
     cursor: pointer;
     letter-spacing: $commonFour;
+    @include breakpoint() {
+        width: 100%;
+        color: $basicWhite;
+        text-align: center;
+        margin-bottom: $commonTen;
+    }
 }
 
 h3 {
@@ -101,6 +113,12 @@ nav {
             }
         }
     }
+    & ul {
+        @include breakpoint() {
+            width: 100%;
+            text-align: center;
+        }
+    }
 }
 
 .cart a {
@@ -124,7 +142,7 @@ nav {
         cursor: pointer;
         max-width: 420px;
         overflow: hidden;
-        border: 1px solid $imageBorderColor;
+        border: $commonBorderOne solid $imageBorderColor;
         border-radius: $commonEight;
         &:hover {
             transform: scale(1.02);
@@ -175,7 +193,7 @@ nav {
     border-top-right-radius: $commonFour;
 }
 
-/* THIS IS THE CART PAGE SECTIOn */
+/* THIS IS THE CART PAGE SECTION */
 //CART PAGE 
 .container-products {
     max-width: 650px;
@@ -186,59 +204,111 @@ nav {
     margin: 0 auto;
     margin-top: 50px;
     padding-bottom: 100px;
-}
-
-.product-header {
-    width: 100%;
-    max-width: 650px;
-    display: flex;
-    justify-content: flex-start;
-    
-    margin: 0 auto;
-}
-
-.product-title {
-    width: 45%;
+    @include breakpoint() {
+        width: 330px;
+    }
+    .product-header {
+        width: 100%;
+        max-width: 650px;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto;
+            .product-title {
+            width: 45%;
+            }
+    }
 }
 
 .price {
-    border-bottom: 2px solid $imageBorderColor;
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
     width: 15%;
     display: flex;
     align-items: center;
+    @include breakpoint() {
+        font-size: 12px;
+        font-weight: bold;
+    }
 }
 
 .quantity {
-    border-bottom: 2px solid $imageBorderColor;
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
     width: 30%;
     display: flex;
     align-items: center;
-}
-
-.decrease {
-    padding-left: 20px;
+    @include breakpoint() {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .decrease {
+        cursor: pointer;
+        margin-right: $commonSix;
+        margin-left: 16px;
+        color: $decreaseColor;
+        border-radius: 8px;
+        &:active {
+            transform: scale(1.25);
+        }
+        @include breakpoint() {
+            margin-left: 12px;
+        }
+    }
+    .increase {
+        color: $increaseColor;
+        border-radius: $commonEight;
+        cursor: pointer;
+        margin-left: $commonSix;
+        &:active {
+            transform: scale(1.25);
+        }
+    }
 }
 
 .total {
-    border-bottom: 2px solid $imageBorderColor;
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
     width: 10%;
     display: flex;
     align-items: center;
+    @include breakpoint() {
+        font-size: $fontTwelve;
+        font-weight: bold;
+    }
 }
 
 h5 {
-    border-bottom: 2px solid $imageBorderColor;
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
 }
 
 .product {
-    border-bottom: 2px solid $imageBorderColor;
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
     display: flex;
     align-items: center;
     width: 45%;
     justify-content: space-around;
-    padding: 10px 0;
+    padding: $commonTen 0;
     &-header {
-        border-bottom: 2px solid $imageBorderColor;
+        border-bottom: $commonBorderTwo solid $imageBorderColor;
+    }
+    @include breakpoint() {
+        font-size: $fontTwelve;
+    }
+    & .close-circle {
+        background-color: $removeItemColor;
+        border-radius: $commonTen;
+        padding: $commonFour;
+        color: $basicWhite;
+        cursor: pointer;
+        &:hover {
+            background-color: $removeItemColorHover;
+        }
+        &:active {
+            transform: scale(0.94);
+        }
+    }
+    .basketImage, .basketItemName {
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.04);
+        }
     }
 }
 
@@ -250,6 +320,9 @@ h5 {
 
 .products img {
     width: 75px;
+    @include breakpoint() {
+        width: 45px;
+    }
 }
 
 .basketTotalContainer {
@@ -257,44 +330,15 @@ h5 {
     justify-content: flex-end;
     width: 100%;
     padding: $commonTen 14px;
-}
-
-.basketTotalTitle {
-    width: 30%;
-}
-
-//BREAKPOINT
-@media(max-width: 660px) {
-    nav h2 {
-        width: 100%;
-        color: red;
-        text-align: center;
-        margin-bottom: $commonTen;
-    }
-
-    nav ul {
-        width: 100%;
-        text-align: center;
-    }
-
-    .container-products {
-        width: 330px;
-    }
-
-    .product {
-        font-size: 12px;
-    }
-
-    .price {
-        font-size: 12px;
+    @include breakpoint() {
+        font-size: $fontTwelve;
         font-weight: bold;
     }
-
-    .decrease {
-        padding-left: 20px;
-    }
-
-    .products img {
-        width: 45px;
+    .basketTotalTitle {
+        width: 30%;
+        @include breakpoint() {
+            padding-left: $commonTwenty;
+        }
     }
 }
+
