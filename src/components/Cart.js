@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { productQuantity } from '../actions/productQuantity'
+import { productQuantity, clearProduct } from '../actions/productQuantity'
 import photo1 from '../images/photo1.jpg';
 import photo2 from '../images/photo2.jpg';
 import photo3 from '../images/photo3.jpg';
@@ -10,7 +10,7 @@ import photo6 from '../images/photo6.png';
 import photo7 from '../images/photo7.jpg';
 import photo8 from '../images/photo8.jpg';
 
-function Cart({ basketProps, productQuantity }) {
+function Cart({ basketProps, productQuantity, clearProduct }) {
     console.log(basketProps)
 
     let productsInCart = [];
@@ -52,7 +52,7 @@ function Cart({ basketProps, productQuantity }) {
         return (
             <Fragment key={index}>
                 <div className="product">
-                    <div className="close-circle">x</div>
+                    <div onClick={() => clearProduct(product.tag)} className="close-circle">x</div>
                     <img src={productImages(product)} alt="" />
                     <span className="sm-hide">{product.name}</span>
                 </div>
@@ -90,4 +90,4 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 });
 
-export default connect(mapStateToProps, { productQuantity })(Cart);
+export default connect(mapStateToProps, { productQuantity, clearProduct })(Cart);

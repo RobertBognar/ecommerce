@@ -1,6 +1,6 @@
 //INCREASE & DECREASE BUTTON 
 
-import { INCREASE_QUANTITY, DECREASE_QUANTITY } from './types';
+import { INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT } from './types';
 
 export const productQuantity = (action, name) => {
     return (dispatch) => {
@@ -10,7 +10,20 @@ export const productQuantity = (action, name) => {
 
         dispatch({
             type: action === 'increase' ? INCREASE_QUANTITY : DECREASE_QUANTITY,
-            payload: name 
+            payload: name
+        })
+    }
+}
+
+export const clearProduct = (name) => {
+    return (dispatch) => {
+        console.log('Inside remove product');
+        console.log('Product name ', name);
+
+
+        dispatch({
+            type: CLEAR_PRODUCT,
+            payload: name
         })
     }
 }
