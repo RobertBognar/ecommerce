@@ -6,48 +6,56 @@ const initialState = {
     products: {
         blackHoodie: {
             name: "Black Hoodie",
+            tag: 'blackHoodie',
             price: 20.00,
             numbers: 0,
             inCart: false
         },
         grayHoodie: {
             name: "Gray Hoodie",
+            tag: 'grayHoodie',
             price: 30.00,
             numbers: 0,
             inCart: false
         },
         blueHoodie: {
             name: "Blue Hoodie",
+            tag: 'blueHoodie',
             price: 40.00,
             numbers: 0,
             inCart: false
         },
         pinkHoodie: {
             name: "Pink Hoodie",
+            tag: 'pinkHoodie',
             price: 60.00,
             numbers: 0,
             inCart: false
         },
         streetHoodie: {
             name: "Street Hoodie",
+            tag: 'streetHoodie',
             price: 70.00,
             numbers: 0,
             inCart: false
         },
         printedHoodie: {
             name: "Printed Hoodie",
+            tag: 'printedHoodie',
             price: 170.00,
             numbers: 0,
             inCart: false
         },
         warmHoodie: {
             name: "Warm Hoodie",
+            tag: 'warmHoodie',
             price: 99.00,
             numbers: 0,
             inCart: false
         },
         basicHoodie: {
             name: "Basic Hoodie",
+            tag: 'basicHoodie',
             price: 80.00,
             numbers: 0,
             inCart: false

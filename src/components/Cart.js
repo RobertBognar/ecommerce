@@ -23,7 +23,27 @@ function Cart({ basketProps }) {
         console.log(productsInCart);
     });
 
-    const productImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8];
+    // const productImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8];
+
+    const productImages = (product) => {
+        if (product.tag === 'blackHoodie') {
+            return photo1;
+        } else if (product.tag === 'grayHoodie') {
+            return photo2;
+        } else if (product.tag === 'blueHoodie') {
+            return photo3;
+        } else if (product.tag === 'pinkHoodie') {
+            return photo4;
+        } else if (product.tag === 'streetHoodie') {
+            return photo5;
+        } else if (product.tag === 'printedHoodie') {
+            return photo6;
+        } else if (product.tag === 'warmHoodie') {
+            return photo7;
+        } else if (product.tag === 'basicHoodie') {
+            return photo8;
+        }
+    }
 
     productsInCart = productsInCart.map((product, index) => {
         console.log('My product is');
@@ -32,7 +52,7 @@ function Cart({ basketProps }) {
             <Fragment>
                 <div className="product">
                     <div className="close-circle">x</div>
-                    <img src={productImages[index]} />
+                    <img src={productImages(product)} alt="" />
                     <span className="sm-hide">{product.name}</span>
                 </div>
                 <div className="price sm-hide">${product.price},00</div>
