@@ -62,7 +62,8 @@ const initialState = {
         }
     }
 }
-
+//ADDING CASES FOR BASKET & CART NUMBERS UPDATES
+//DECREASE PREVENT TO GO TO NEGATIVE WITH UPDATING WITH THE NEW COST
 export default (state = initialState, action) => {
     let productSelected = '';
     switch (action.type) {
@@ -96,8 +97,23 @@ export default (state = initialState, action) => {
                 }
             }
         case DECREASE_QUANTITY:
+            productSelected = { ...state.products[action.payload] }
+            let newCartCost = 0;
+            if (productSelected.numbers === 0) {
+                productSelected.numbers -= 0;
+                newCartCost = state.cartCost;
+            } else {
+                productSelected.numbers -= 1;
+                newCartCost = state.cartCost - state.products[action.payload].price
+            }
+
             return {
-                ...state
+                ...state,
+                cartCost: newCartCost,
+                products: {
+                    ...state.products,
+                    [action.payload]: productSelected
+                }
             }
         default:
             return state;
