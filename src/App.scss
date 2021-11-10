@@ -174,3 +174,127 @@ nav {
     border-top-left-radius: $commonFour;
     border-top-right-radius: $commonFour;
 }
+
+/* THIS IS THE CART PAGE SECTIOn */
+//CART PAGE 
+.container-products {
+    max-width: 650px;
+    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-bottom: 100px;
+}
+
+.product-header {
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: flex-start;
+    
+    margin: 0 auto;
+}
+
+.product-title {
+    width: 45%;
+}
+
+.price {
+    border-bottom: 2px solid $imageBorderColor;
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.quantity {
+    border-bottom: 2px solid $imageBorderColor;
+    width: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.decrease {
+    padding-left: 20px;
+}
+
+.total {
+    border-bottom: 2px solid $imageBorderColor;
+    width: 10%;
+    display: flex;
+    align-items: center;
+}
+
+h5 {
+    border-bottom: 2px solid $imageBorderColor;
+}
+
+.product {
+    border-bottom: 2px solid $imageBorderColor;
+    display: flex;
+    align-items: center;
+    width: 45%;
+    justify-content: space-around;
+    padding: 10px 0;
+    &-header {
+        border-bottom: 2px solid $imageBorderColor;
+    }
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products img {
+    width: 75px;
+}
+
+.basketTotalContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: $commonTen 14px;
+}
+
+.basketTotalTitle {
+    width: 30%;
+}
+
+//BREAKPOINT
+@media(max-width: 660px) {
+    nav h2 {
+        width: 100%;
+        color: red;
+        text-align: center;
+        margin-bottom: $commonTen;
+    }
+
+    nav ul {
+        width: 100%;
+        text-align: center;
+    }
+
+    .container-products {
+        width: 330px;
+    }
+
+    .product {
+        font-size: 12px;
+    }
+
+    .price {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .decrease {
+        padding-left: 20px;
+    }
+
+    .products img {
+        width: 45px;
+    }
+}
