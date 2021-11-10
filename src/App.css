@@ -7,6 +7,10 @@
   font-family: "Roboto", sans-serif;
 }
 
+body {
+  background-color: #fffdfd;
+}
+
 header {
   background-image: url("./images/cover.jpg");
   background-repeat: no-repeat;
@@ -16,13 +20,8 @@ header {
   position: relative;
 }
 
-h2 {
-  color: #fefefe;
-  text-transform: uppercase;
+header:hover .header-overlay {
   cursor: pointer;
-}
-
-.header-overlay {
   position: absolute;
   z-index: 1;
   top: 0;
@@ -33,6 +32,25 @@ h2 {
   padding: 0;
   margin: 0;
   background-color: rgba(10, 10, 10, 0.3);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+h2 {
+  color: #fefefe;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 4px;
+}
+
+h3 {
+  margin-top: 4px;
+}
+
+p {
+  visibility: hidden;
+  margin-top: 4px;
+  font-style: italic;
 }
 
 nav {
@@ -71,9 +89,24 @@ nav li a {
   cursor: pointer;
 }
 
+nav li a:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-color: #b6b4b4;
+          text-decoration-color: #b6b4b4;
+}
+
+nav li a:active {
+  text-decoration: none;
+}
+
 .cart a {
   background-color: #6f93ff;
   border-radius: 8px;
+}
+
+.cart a:hover {
+  background-color: #8fabff;
+  text-decoration: none;
 }
 
 .container {
@@ -94,6 +127,8 @@ nav li a {
   cursor: pointer;
   max-width: 420px;
   overflow: hidden;
+  border: 1px solid #f1f0f0;
+  border-radius: 8px;
 }
 
 .container img:hover {
@@ -103,22 +138,34 @@ nav li a {
   transition: all 0.3s ease;
 }
 
+@media (max-width: 475px) {
+  .container img {
+    max-width: 320px;
+  }
+}
+
 .image {
-  margin-right: 20px;
-  margin-left: 20px;
+  margin: 20px;
   position: relative;
   overflow: hidden;
+}
+
+.image:hover p {
+  visibility: visible;
 }
 
 .image:hover .cart1,
 .image:hover .cart2,
 .image:hover .cart3,
-.image:hover .cart4 {
+.image:hover .cart4,
+.image:hover .cart5,
+.image:hover .cart6,
+.image:hover .cart7,
+.image:hover .cart8 {
   width: 100%;
-  bottom: 50px;
+  bottom: 78px;
   opacity: 1;
   padding: 10px;
-  text-decoration: none;
 }
 
 .addToCart {
@@ -131,5 +178,7 @@ nav li a {
   opacity: 0;
   cursor: pointer;
   text-align: center;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }
 /*# sourceMappingURL=App.css.map */

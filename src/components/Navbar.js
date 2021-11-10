@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { getNumbers } from '../actions/getAction';
 
-function Navbar() {
+function Navbar(props) {
+
+    useEffect(() => {
+        getNumbers();
+    }, [])
     return (
         <header>
             <div className="header-overlay"></div>
@@ -9,11 +15,15 @@ function Navbar() {
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li className="cart"><a href="#">Cart 🛒</a></li>
+                    <li className="cart"><a href="#">Cart 🛒<span>{props.basketProps.basketNumbers}</span></a></li>
                 </ul>
             </nav>
         </header>
     );
 }
 
-export default Navbar;
+const mapStateToProps = state => ({
+    basketProps: state.basketState
+})
+
+export default connect(mapStateToProps, { getNumbers })(Navbar);

@@ -1,10 +1,29 @@
 @import 'variables';
 
+//Mixins
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+//Global
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: $family;
+}
+
+body {
+    background-color: $backgroundColor;
 }
 //Header & Overlay Container Style
 header {
@@ -14,25 +33,39 @@ header {
     background-position: center;
     height: 150px;
     position: relative;
+    &:hover {
+        .header-overlay {
+            cursor: pointer;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100%;
+            right: 0;
+            bottom: 0;
+            padding: 0;
+            margin: 0;
+            background-color: $overlayBackground;
+            transition: all 0.3s ease-in-out;
+        }
+    }
 }
 
 h2 {
     color: $basicWhite;
     text-transform: uppercase;
     cursor: pointer;
+    letter-spacing: $commonFour;
 }
 
-.header-overlay {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    height: 100%;
-    right: 0;
-    bottom: 0;
-    padding: 0;
-    margin: 0;
-    background-color: $overlayBackground;
+h3 {
+    margin-top: $commonFour;
+}
+
+p {
+    visibility: hidden;
+    margin-top: $commonFour;
+    font-style: italic;
 }
 
 //Navigation Container Style
@@ -49,8 +82,8 @@ nav {
     & li {
         list-style: none;
         display: inline-block;
-        padding-right: 10px;
-        padding-left: 10px;
+        padding-right: $commonTen;
+        padding-left: $commonTen;
         &:active {
             transform: scale(0.96);
         }
@@ -59,13 +92,24 @@ nav {
             text-decoration: none;
             padding: 5px;
             cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: $textDecorationColor;
+            }
+            &:active {
+                text-decoration: none;
+            }
         }
     }
 }
 
 .cart a {
     background-color: $cartColor;
-    border-radius: 8px;
+    border-radius: $commonEight;
+    &:hover {
+        background-color: $cartColorHover;
+        text-decoration: none;
+    }
 }
 
 //Images Displayed Container Style
@@ -80,29 +124,41 @@ nav {
         cursor: pointer;
         max-width: 420px;
         overflow: hidden;
+        border: 1px solid $imageBorderColor;
+        border-radius: $commonEight;
         &:hover {
             transform: scale(1.02);
             transition: all 0.3s ease;
+        }
+        @include mobile() {
+            max-width: 320px;
         }
     }
 }
 
 .image {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin: $commonTwenty;
     position: relative;
     overflow: hidden;
+    &:hover {
+        p {
+            visibility: visible;
+        }
+    }
 }
 
 .image:hover .cart1,
 .image:hover .cart2,
 .image:hover .cart3,
-.image:hover .cart4 {
+.image:hover .cart4, 
+.image:hover .cart5,
+.image:hover .cart6,
+.image:hover .cart7,
+.image:hover .cart8 {
     width: 100%;
-    bottom: 50px;
+    bottom: 78px;
     opacity: 1;
-    padding: 10px;
-    text-decoration: none;
+    padding: $commonTen;
 }
 
 //Add To Cart Button Style
@@ -115,5 +171,6 @@ nav {
     opacity: 0;
     cursor: pointer;
     text-align: center;
+    border-top-left-radius: $commonFour;
+    border-top-right-radius: $commonFour;
 }
-

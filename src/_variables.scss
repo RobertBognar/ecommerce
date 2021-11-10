@@ -6,8 +6,22 @@ $firstWeight: 500;
 $secondWeight: 700;
 
 //COLORS
+$backgroundColor: rgb(255, 253, 253);
 $basicWhite: #fefefe;
 $basicBlack: #000;
 $cartColor: rgb(111, 147, 255);
+$cartColorHover: rgb(143, 171, 255);
 $overlayBackground: rgba(10,10,10,0.3);
 $addToCartHover: rgb(243, 240, 240);
+$imageBorderColor: rgb(241, 240, 240);
+$textDecorationColor: rgb(182, 180, 180);
+
+//COMMON BORDER RADIUS, PADDINGS, MARGINS
+$commonFour: 4px;
+$commonEight: 8px;
+$commonTen: 10px;
+$commonTwenty: 20px;
+
+//RESPONSIVNES
+$tablet: 768px;
+$mobile: 475px;
