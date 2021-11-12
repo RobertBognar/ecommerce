@@ -443,7 +443,8 @@ h5 {
 }
 
 /* THIS IS THE ABOUT PAGE SECTION */
-.aboutUs {
+.about-container .aboutUs {
+  cursor: pointer;
   font-size: 32px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -451,5 +452,24 @@ h5 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 20px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.about-container .paragraph {
+  cursor: pointer;
+  margin-top: 10px;
+  line-height: 28px;
+  color: #7a7a7a;
+  letter-spacing: 1px;
+  font-size: 18px;
+  padding: 20px;
+}
+
+@media (max-width: 660px) {
+  .about-container .paragraph {
+    font-size: 14px;
+  }
 }
 /*# sourceMappingURL=App.css.map */

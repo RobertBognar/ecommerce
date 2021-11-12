@@ -357,8 +357,27 @@ h5 {
 }
 
 /* THIS IS THE ABOUT PAGE SECTION */
-.aboutUs {
-    font-size: 32px;
-    display: flex;
-    justify-content: center;
+
+.about-container {
+    & .aboutUs {
+        cursor: pointer;
+        font-size: 32px;
+        display: flex;
+        justify-content: center;
+        margin-top: $commonTwenty;
+        text-transform: uppercase;
+        letter-spacing: $commonFour;
+    }
+    & .paragraph {
+        cursor: pointer;
+        margin-top: $commonTen;
+        line-height: 28px;
+        color: $paragraphAboutColor;
+        letter-spacing: 1px;
+        font-size: 18px;
+        padding: $commonTwenty;
+        @include breakpoint() {
+            font-size: 14px;
+        }
+    }
 }
