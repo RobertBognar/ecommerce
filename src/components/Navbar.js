@@ -7,7 +7,8 @@ function Navbar(props) {
 
     useEffect(() => {
         getNumbers();
-    }, [])
+    }, []);
+
     return (
         <header>
             <div className="header-overlay"></div>

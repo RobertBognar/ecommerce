@@ -472,4 +472,8 @@ h5 {
     font-size: 14px;
   }
 }
+
+.about-container .scroll {
+  cursor: pointer;
+}
 /*# sourceMappingURL=App.css.map */

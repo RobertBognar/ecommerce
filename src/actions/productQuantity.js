@@ -4,9 +4,6 @@ import { INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT, CLEAR_CART } from 
 
 export const productQuantity = (action, name) => {
     return (dispatch) => {
-        console.log('Inside product quantity');
-        console.log('The action is', action);
-        console.log('The product name is', name);
 
         dispatch({
             type: action === 'increase' ? INCREASE_QUANTITY : DECREASE_QUANTITY,
@@ -17,9 +14,6 @@ export const productQuantity = (action, name) => {
 
 export const clearProduct = (name) => {
     return (dispatch) => {
-        console.log('Inside remove product');
-        console.log('Product name ', name);
-
 
         dispatch({
             type: CLEAR_PRODUCT,
@@ -30,9 +24,6 @@ export const clearProduct = (name) => {
 
 export const clearCart = (name) => {
     return (dispatch) => {
-        console.log('Inside remove cart');
-        console.log('Product name ', name);
-
 
         dispatch({
             type: CLEAR_CART,

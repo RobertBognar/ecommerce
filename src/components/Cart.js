@@ -12,17 +12,15 @@ import photo8 from '../images/photo8.jpg';
 // alert('Refresh Cart Page After Clearing The Cart');
 
 function Cart({ basketProps, productQuantity, clearProduct, clearCart }) {
-    console.log(basketProps)
 
     let productsInCart = [];
 
     Object.keys(basketProps.products).forEach(function (item) {
-        console.log(item);
-        console.log(basketProps.products[item].inCart);
+
         if (basketProps.products[item].inCart) {
             productsInCart.push(basketProps.products[item]);
         }
-        console.log(productsInCart);
+
     });
 
     const productImages = (product) => {
@@ -46,8 +44,6 @@ function Cart({ basketProps, productQuantity, clearProduct, clearCart }) {
     }
 
     productsInCart = productsInCart.map((product, index) => {
-        console.log('My product is');
-        console.log(product);
         return (
             <Fragment key={index}>
                 <div className="product">
