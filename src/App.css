@@ -238,6 +238,25 @@ nav li a:active {
   width: 45%;
 }
 
+.container-products .clearcart {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ff1616;
+  border-radius: 8px;
+  padding: 8px;
+  color: #fefefe;
+  margin-top: 20px;
+}
+
+.container-products .clearcart:hover {
+  background-color: #ff6060;
+}
+
+.container-products .clearcart:active {
+  -webkit-transform: scale(0.96);
+          transform: scale(0.96);
+}
+
 .price {
   border-bottom: 2px solid #f1f0f0;
   width: 15%;

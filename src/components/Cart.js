@@ -62,7 +62,7 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
                     <span>{product.numbers}</span>
                     <div onClick={() => productQuantity('increase', product.tag)} className="increase"> + </div>
                 </div>
-                <div className="total">${product.numbers * product.price},00</div>
+                <div className="total">${product.numbers * product.price},00 </div>
             </Fragment>
         )
     });
@@ -82,6 +82,7 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
                 <h4 className="basketTotalTitle">Basket Total</h4>
                 <h4 className="basketTotalPrice">${basketProps.cartCost},00</h4>
             </div>
+            <div className="clearcart">CLEAR CART</div>
         </div>
     )
 }

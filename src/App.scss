@@ -217,6 +217,21 @@ nav {
             width: 45%;
             }
     }
+    .clearcart {
+        position: absolute;
+        cursor: pointer;
+        background-color: $removeItemColor;
+        border-radius: $commonEight;
+        padding: $commonEight;
+        color: $basicWhite;
+        margin-top: $commonTwenty;
+        &:hover {
+            background-color: $removeItemColorHover;
+        }
+        &:active {
+            transform: scale(0.96);
+        }
+    }
 }
 
 .price {
