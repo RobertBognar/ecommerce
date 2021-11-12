@@ -144,9 +144,7 @@ export default (state = initialState, action) => {
                 basketNumbers: state.basketNumbers - state.basketNumbers,
                 cartCost: state.cartCost - state.cartCost,
                 products: {
-                    //Error On Page, Need To Fix, Need To Reaload Page To Apply This Empty Cart Function
-                    // ...state.products,
-                    // [action.payload]: productSelected
+                    
                 }
             }
         default:

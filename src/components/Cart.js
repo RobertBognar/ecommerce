@@ -9,6 +9,7 @@ import photo5 from '../images/photo5.jpg';
 import photo6 from '../images/photo6.png';
 import photo7 from '../images/photo7.jpg';
 import photo8 from '../images/photo8.jpg';
+// alert('Refresh Cart Page After Clearing The Cart');
 
 function Cart({ basketProps, productQuantity, clearProduct, clearCart }) {
     console.log(basketProps)
@@ -80,7 +81,7 @@ function Cart({ basketProps, productQuantity, clearProduct, clearCart }) {
                 <h4 className="basketTotalTitle">Basket Total</h4>
                 <h4 className="basketTotalPrice">${basketProps.cartCost},00</h4>
             </div>
-            <div onClick={() => clearCart(productsInCart)} className="clearcart">CLEAR CART</div>
+            <div onClick={() => { clearCart(); pageRefresh() }} className="clearcart">CLEAR CART</div>
         </div>
     )
 }
@@ -89,4 +90,8 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 });
 
+//Disabling Error While Deleting Items From Cart List
+function pageRefresh() {
+    window.location.reload(true);
+}
 export default connect(mapStateToProps, { productQuantity, clearProduct, clearCart })(Cart);
