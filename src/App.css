@@ -441,4 +441,15 @@ h5 {
     padding-left: 20px;
   }
 }
+
+/* THIS IS THE ABOUT PAGE SECTION */
+.aboutUs {
+  font-size: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 /*# sourceMappingURL=App.css.map */

@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 function About() {
     return (
-        <div>
-            <h1>TEST ABOUT</h1>
-        </div>
+        <Fragment>
+            <div className="aboutUs">
+                <h1 className="aboutUsTitle">About Us</h1>
+            </div>
+        </Fragment>
     )
 }
 
