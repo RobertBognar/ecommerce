@@ -1,4 +1,4 @@
-import { ADD_PRODUCT_BASKET, GET_NUMBERS_BASKET, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT } from '../actions/types';
+import { ADD_PRODUCT_BASKET, GET_NUMBERS_BASKET, INCREASE_QUANTITY, DECREASE_QUANTITY, CLEAR_PRODUCT, CLEAR_CART } from '../actions/types';
 
 const initialState = {
     basketNumbers: 0,
@@ -132,6 +132,21 @@ export default (state = initialState, action) => {
                 products: {
                     ...state.products,
                     [action.payload]: productSelected
+                }
+            }
+        case CLEAR_CART:
+            productSelected = { ...state.products[action.payload] };
+            productSelected.numbers = 0;
+            productSelected.price = 0;
+            productSelected.inCart = false;
+            return {
+                ...state,
+                basketNumbers: state.basketNumbers - state.basketNumbers,
+                cartCost: state.cartCost - state.cartCost,
+                products: {
+                    //Error On Page, Need To Fix, Need To Reaload Page To Apply This Empty Cart Function
+                    // ...state.products,
+                    // [action.payload]: productSelected
                 }
             }
         default:

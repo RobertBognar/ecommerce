@@ -239,7 +239,6 @@ nav li a:active {
 }
 
 .container-products .clearcart {
-  position: absolute;
   cursor: pointer;
   background-color: #ff1616;
   border-radius: 8px;

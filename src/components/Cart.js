@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { productQuantity, clearProduct } from '../actions/productQuantity'
+import { productQuantity, clearProduct, clearCart } from '../actions/productQuantity'
 import photo1 from '../images/photo1.jpg';
 import photo2 from '../images/photo2.jpg';
 import photo3 from '../images/photo3.jpg';
@@ -10,7 +10,7 @@ import photo6 from '../images/photo6.png';
 import photo7 from '../images/photo7.jpg';
 import photo8 from '../images/photo8.jpg';
 
-function Cart({ basketProps, productQuantity, clearProduct }) {
+function Cart({ basketProps, productQuantity, clearProduct, clearCart }) {
     console.log(basketProps)
 
     let productsInCart = [];
@@ -23,8 +23,6 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
         }
         console.log(productsInCart);
     });
-
-    // const productImages = [photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8];
 
     const productImages = (product) => {
         if (product.tag === 'blackHoodie') {
@@ -62,7 +60,7 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
                     <span>{product.numbers}</span>
                     <div onClick={() => productQuantity('increase', product.tag)} className="increase"> + </div>
                 </div>
-                <div className="total">${product.numbers * product.price},00 </div>
+                <div className="total">${product.numbers * product.price},00</div>
             </Fragment>
         )
     });
@@ -82,7 +80,7 @@ function Cart({ basketProps, productQuantity, clearProduct }) {
                 <h4 className="basketTotalTitle">Basket Total</h4>
                 <h4 className="basketTotalPrice">${basketProps.cartCost},00</h4>
             </div>
-            <div className="clearcart">CLEAR CART</div>
+            <div onClick={() => clearCart(productsInCart)} className="clearcart">CLEAR CART</div>
         </div>
     )
 }
@@ -91,4 +89,4 @@ const mapStateToProps = state => ({
     basketProps: state.basketState
 });
 
-export default connect(mapStateToProps, { productQuantity, clearProduct })(Cart);
+export default connect(mapStateToProps, { productQuantity, clearProduct, clearCart })(Cart);
