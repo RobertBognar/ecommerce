@@ -9,7 +9,6 @@ import photo5 from '../images/photo5.jpg';
 import photo6 from '../images/photo6.png';
 import photo7 from '../images/photo7.jpg';
 import photo8 from '../images/photo8.jpg';
-// alert('Refresh Cart Page After Clearing The Cart');
 
 function Cart({ basketProps, productQuantity, clearProduct, clearCart }) {
 

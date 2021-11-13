@@ -144,7 +144,7 @@ export default (state = initialState, action) => {
                 basketNumbers: state.basketNumbers - state.basketNumbers,
                 cartCost: state.cartCost - state.cartCost,
                 products: {
-                    
+
                 }
             }
         default:
