@@ -1,0 +1,386 @@
+@import 'variables';
+
+//Mixins
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+
+@mixin breakpoint {
+    @media (max-width: #{$breakpoint}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+//Global
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $family;
+}
+
+body {
+    background-color: $backgroundColor;
+}
+//Header & Overlay Container Style
+header {
+    background-image: url('./images/cover.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 150px;
+    position: relative;
+    &:hover {
+        .header-overlay {
+            cursor: pointer;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100%;
+            right: 0;
+            bottom: 0;
+            padding: 0;
+            margin: 0;
+            background-color: $overlayBackground;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+h2 {
+    color: $basicWhite;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: $commonFour;
+    @include breakpoint() {
+        width: 100%;
+        color: $basicWhite;
+        text-align: center;
+        margin-bottom: $commonTen;
+    }
+}
+
+h3 {
+    margin-top: $commonFour;
+}
+
+p {
+    visibility: hidden;
+    margin-top: $commonFour;
+    font-style: italic;
+}
+
+//Navigation Container Style
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 50px 60px 0 60px;
+    & li {
+        list-style: none;
+        display: inline-block;
+        padding-right: $commonTen;
+        padding-left: $commonTen;
+        &:active {
+            transform: scale(0.96);
+        }
+        & a {
+            color: $basicWhite;
+            text-decoration: none;
+            padding: 5px;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+                text-decoration-color: $textDecorationColor;
+            }
+            &:active {
+                text-decoration: none;
+            }
+        }
+    }
+    & ul {
+        @include breakpoint() {
+            width: 100%;
+            text-align: center;
+        }
+    }
+}
+
+.cart a {
+    background-color: $cartColor;
+    border-radius: $commonEight;
+    &:hover {
+        background-color: $cartColorHover;
+        text-decoration: none;
+    }
+}
+
+//Images Displayed Container Style
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    & img {
+        position: relative;
+        cursor: pointer;
+        max-width: 420px;
+        overflow: hidden;
+        border: $commonBorderOne solid $imageBorderColor;
+        border-radius: $commonEight;
+        &:hover {
+            transform: scale(1.02);
+            transition: all 0.3s ease;
+        }
+        @include mobile() {
+            max-width: 320px;
+        }
+    }
+}
+
+.image {
+    margin: $commonTwenty;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+        p {
+            visibility: visible;
+        }
+    }
+}
+
+.image:hover .cart1,
+.image:hover .cart2,
+.image:hover .cart3,
+.image:hover .cart4, 
+.image:hover .cart5,
+.image:hover .cart6,
+.image:hover .cart7,
+.image:hover .cart8 {
+    width: 100%;
+    bottom: 78px;
+    opacity: 1;
+    padding: $commonTen;
+}
+
+//Add To Cart Button Style
+.addToCart {
+    position: absolute;
+    text-decoration: none;
+    color: $basicBlack;
+    background-color: $addToCartHover;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+    cursor: pointer;
+    text-align: center;
+    border-top-left-radius: $commonFour;
+    border-top-right-radius: $commonFour;
+}
+
+/* THIS IS THE CART PAGE SECTION */
+//CART PAGE 
+.container-products {
+    max-width: 650px;
+    justify-content: space-around;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding-bottom: 100px;
+    @include breakpoint() {
+        width: 330px;
+    }
+    .product-header {
+        width: 100%;
+        max-width: 650px;
+        display: flex;
+        justify-content: flex-start;
+        margin: 0 auto;
+            .product-title {
+            width: 45%;
+            }
+    }
+    .clearcart {
+        cursor: pointer;
+        background-color: $removeItemColor;
+        border-radius: $commonEight;
+        padding: $commonEight;
+        color: $basicWhite;
+        margin-top: $commonTwenty;
+        &:hover {
+            background-color: $removeItemColorHover;
+        }
+        &:active {
+            transform: scale(0.96);
+        }
+    }
+}
+
+.price {
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    @include breakpoint() {
+        font-size: 12px;
+        font-weight: bold;
+    }
+}
+
+.quantity {
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
+    width: 30%;
+    display: flex;
+    align-items: center;
+    @include breakpoint() {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .decrease {
+        cursor: pointer;
+        margin-right: $commonSix;
+        margin-left: 16px;
+        color: $decreaseColor;
+        border-radius: 8px;
+        &:active {
+            transform: scale(1.25);
+        }
+        @include breakpoint() {
+            margin-left: 12px;
+        }
+    }
+    .increase {
+        color: $increaseColor;
+        border-radius: $commonEight;
+        cursor: pointer;
+        margin-left: $commonSix;
+        &:active {
+            transform: scale(1.25);
+        }
+    }
+}
+
+.total {
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
+    width: 10%;
+    display: flex;
+    align-items: center;
+    @include breakpoint() {
+        font-size: $fontTwelve;
+        font-weight: bold;
+    }
+}
+
+h5 {
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
+}
+
+.product {
+    border-bottom: $commonBorderTwo solid $imageBorderColor;
+    display: flex;
+    align-items: center;
+    width: 45%;
+    justify-content: space-around;
+    padding: $commonTen 0;
+    &-header {
+        border-bottom: $commonBorderTwo solid $imageBorderColor;
+    }
+    @include breakpoint() {
+        font-size: $fontTwelve;
+    }
+    & .close-circle {
+        background-color: $removeItemColor;
+        border-radius: $commonTen;
+        padding: $commonFour;
+        color: $basicWhite;
+        cursor: pointer;
+        &:hover {
+            background-color: $removeItemColorHover;
+        }
+        &:active {
+            transform: scale(0.94);
+        }
+    }
+    .basketImage, .basketItemName {
+        cursor: pointer;
+        &:hover {
+            transform: scale(1.04);
+        }
+    }
+}
+
+.products {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.products img {
+    width: 75px;
+    @include breakpoint() {
+        width: 45px;
+    }
+}
+
+.basketTotalContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: $commonTen 14px;
+    @include breakpoint() {
+        font-size: $fontTwelve;
+        font-weight: bold;
+    }
+    .basketTotalTitle {
+        width: 30%;
+        @include breakpoint() {
+            padding-left: $commonTwenty;
+        }
+    }
+}
+
+/* THIS IS THE ABOUT PAGE SECTION */
+
+.about-container {
+    & .aboutUs {
+        cursor: pointer;
+        font-size: 32px;
+        display: flex;
+        justify-content: center;
+        margin-top: $commonTwenty;
+        text-transform: uppercase;
+        letter-spacing: $commonFour;
+    }
+    & .paragraph {
+        cursor: pointer;
+        margin-top: $commonTen;
+        line-height: 28px;
+        color: $paragraphAboutColor;
+        letter-spacing: 1px;
+        font-size: 18px;
+        padding: $commonTwenty;
+        @include breakpoint() {
+            font-size: 14px;
+        }
+    }
+    & .scroll {
+        cursor: pointer;
+    }
+}
